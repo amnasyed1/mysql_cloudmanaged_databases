@@ -3,6 +3,16 @@
 ## 1. MySQL Setup on Azure and GCP
 
 ### GCP: 
+1. Sign into Google Cloud Platform `https://console.cloud.google.com/?hl=en-AU`.
+2. Once logged in, click on the drop down on the top of the page next to where it says "Goolge Cloud" and select `New Project`.
+3. Next name the project accordingly, ensure the selected organization is appropriate, and select the location of where the you'd like the project to go. Then click `create`.
+4. Locate the Navigation Menu (the hamburger icon) on the top left-hand side, and select `SQL`.
+5. Once on the SQL page, click `Create Instance`, select `MySQL`.
+6. Create an instance ID and password.
+7. Under the `Choose a Cloud SQL edition section, ensure the choices are consistent with the screenshot below: ![image](https://github.com/amnasyed1/mysql_cloudmanaged_databases/assets/123895397/1310ec0f-9898-4d22-aebb-a72483a8f01b)
+8. Under the `Machine Configuration` section, select `shared core` from the drop down, and then `1 vCPU, 0.614 GB`.
+9. Next under the `Connections` section, select `Public IP` and click `Add a network`. For the new network name type `Allow All` and for the network type `0.0.0.0/0`.
+10. Lastly, click `Create Instance`.
 
 ### Azure: 
 1. Sign into Microscoft Azure https://azure.microsoft.com/en-us with your email.
