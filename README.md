@@ -1,6 +1,6 @@
 # mysql_cloudmanaged_databases
 
-## 1. MySQL Setup on Azure and GCP
+## MySQL Setup on Azure and GCP
 
 ### GCP: 
 1. Sign into Google Cloud Platform `https://console.cloud.google.com/?hl=en-AU`.
@@ -25,3 +25,12 @@
 8. Now navigating to the `Networking` tab, next to "Basics", ensure the `Connectivity method` is `Public access (allowed IP addresses) and Private endpoint`.
 9. Under `Firewall rules`, check the box that states `Allow all public access from any Azure Service within Azure to this server` and click `+ Add 0.0.0.0 -255.255.255.255`. After these steps are completed, it should look like this: ![image](https://github.com/amnasyed1/mysql_cloudmanaged_databases/assets/123895397/134c2f7e-eec0-441f-bd88-0e363fe44ed7)
 Lastly, at the bottom of the page hit `Review & Create`. Check if all the details presented are correct and then hit `Create`. 
+
+## MySQL Workbench for Database Interaction:
+My experience with MySQL Workbench was smooth and positive, with no big issues. The only issue I came across was when I was creating the `allergies` table at first working in the GCP instance. I was receiving error codes, which I have documented below; however, I was able to resolve the issue rather quickly and easily. To connect MySQL Workbench to GCP, I followed Professor Williams tutorial during class; and to connect MySQL Workbench to Azure I used the documentation on this website for aid: https://learn.microsoft.com/en-us/azure/mysql/flexible-server/connect-workbench. Essentially, the only differences in connecting Azure to MySQL Workbench as compared to GCP was inserting the `Server Name` for Azure instead of your `IP Address` as one would do in connecting MySQL Workbench to GCP. The `patients`, `doctors`, `medications`, `patient medications`, and `demographics` were taken from Professor Williams' Github repo; and I created the `allergies` table. In creating the ERD diagrams for both the GCP and Azure instances, I followed the instructions Professor Williams had provided in class while working in the GCP instance on MySQL, and ran into no issues. 
+
+## Documenting Code Errors
+I ran into some issues when creating the `allergies` table in MySQL Workbench, as seen by the screenshot below. The first error code occured when I forgot to run the `CREATE TABLE allergies (` code, before running the command `select * from allergies`. Therefore, I went back to run the `CREATE TABLE allergies( ` code. Unfortunately, when I ran that I recieved an error code. I had originally used `medication_id` for the Foreign Key, for it to connect to the `medications` table. However, it kept giving me an error code claiming "Key column 'medication_id' does not exist. To resolve this issue, I chose to utilize patient_id for the Foreign Key, but I forgot to add the `REFERENCES patients(patient_id)` to connect the `allergies` table to the `patients` table, to the code and had ran it. I then recieved the same error code, and realized what I had forgotten. Then I got a syntax error because I forgot to add a comma at the end of the lines. After I fixed all the errors in the code, and ran it, it finally worked. 
+
+![image](https://github.com/amnasyed1/mysql_cloudmanaged_databases/assets/123895397/5fc5b05d-bc76-4c4f-b289-617ebe0394de)
+
